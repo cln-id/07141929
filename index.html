@@ -1,48 +1,168 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>康文昌的在线HTML 教学小工具</title>
-    <style>  
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex布局</title>
+    <!--为什么只设置height的总长度不设置width-->
+    <style>
       body {
-        margin: 0;
+        margin: 0px;
+        background-color: rgba(237, 244, 250, 0.941);
+        height: 100vh;
+      }
+      /* * {
+        border: 1px solid #333;
+      } */
+      /* {
+        border: 1px solid #333;
+      } */
+      .flex {
+        display: flex;
+      }
+      .flex1 {
+        flex: 1;
+      }
+      .column {
+        flex-direction: column;
+      }
+      .baiSe {
+        background-color: rgb(255, 255, 255);
+      }
+      .yinYing {
+        box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+          rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+      }
+      .border-b {
+        border-bottom: 1px solid rgb(70, 70, 70);
+      }
+      .mg8 {
+        margin: 8px;
+      }
+      .mgl8 {
+        margin-left: 8px;
+      }
+      .mgr8 {
+        margin-right: 8px;
+      }
+      .mgb8 {
+        margin-bottom: 8px;
+      }
+      .shuJu {
+        height: 100px;
+      }
+      .lieBiaoXiang {
+        height: 160px;
+      }
+      .daoHang {
+        padding: 10px 20px;
+        border-bottom: 1px solid rgb(241, 244, 253);
+        font-size: 14px;
+        color: rgb(135, 143, 148);
+        text-align: center;
+      }
+      .zhuQuYu ::-webkit-scrollbar {
+        display: none;
+      }
+      @media screen and (max-width: 600px) {
+        .ceBian {
+          display: none;
+        }
+        .neiRong {
+          flex-direction: column;
+        }
+        .shuJuQu {
+          flex-direction: column;
+        }
+        /* 右区加左外边距 什么意思 */
+        .youQu {
+          margin-left: 8px;
+        }
+        /* 数据块外边距，大小改为自动宽高 什么意思 */
+        .shuJu {
+          margin: 0px 0px 8px;
+          flex: auto;
+        }
       }
     </style>
   </head>
-  <body>
-	  <div style="background-color:#f1f1f1;
-    text-align:center;
-    padding:40px;
-    ">
-      <img src="https://s1.ax1x.com/2022/07/14/jfyv0f.png" alt="logo" width="180" height="90"></img>
+  <body class="flex">
+    <!--侧边栏-->
+    <div
+      style="width: 200px; z-index: 3"
+      class="flex column baiSe yinYing ceBian"
+    >
+      <!--头像栏-->
+      <div
+        style="padding: 10px; align-items: center; justify-content: center"
+        class="flex border-b"
+      >
+        <!--头像-->
+        <img src="logo.png" alt="logo" height="20px" width="60px" />
+        <!--名字-->
+        <div class="mgl8">设计导航</div>
       </div>
-    <div style="
-    max-width: 700px;
-    margin: 50px auto;
-    text-align:center;
-    padding: 40px;
-    line-height: 2;   
-    ">
-      <h1>我的简介</h1>
-      <p>这是我的自学网页的第一个作品</p>
-    
-      <p>学习升级自己的操作系统，迭代自己的版本</p>
-      <p>学习升级自己的操作系统，迭代自己的版本</p>
-      <p>学习升级自己的操作系统，迭代自己的版本</p>
-      <p>学习升级自己的操作系统，迭代自己的版本</p>
+      <!--导航栏-->
+      <!--跟UI的实现思路还是不一样  直接文字作为一个按钮的样式-->
+      <div class="flex flex1 column">
+        <div class="daoHang">必看</div>
+        <div class="daoHang">灵感</div>
+        <div class="daoHang">资源</div>
+        <div class="daoHang">UI-Ux</div>
+        <div class="daoHang">图标</div>
+        <div class="daoHang">图库</div>
+        <div class="daoHang">配色</div>
+        <div class="daoHang">字体</div>
+        <div class="daoHang">素材</div>
+        <div class="daoHang">规范</div>
+        <div class="daoHang">工具</div>
+        <div class="daoHang">社区</div>
+
+        <!--<div style="height: 40px; text-align;: center" class="border mgl8">
+          导航
+        </div>-->
+      </div>
     </div>
-    <div style="background-color:#f1f1f1;
-    text-align:center;
-    padding:30px;
-    font-size: 12px;
-    ">
-    <p>我的网站</p>
-    <a href="https://space.bilibili.com/396015798">个人主页</a>
+    <!--主区域-->
+    <div class="flex column flex1 zhuQuYu">
+      <!--头部栏-->
+      <div
+        style="height: 60px; background-color: rgb(255, 255, 255); z-index: 2"
+        class="flex yinYing"
+      ></div>
+      <!--内容区-->
+      <!--内容区的滚动条为什么去不掉 改成主区域去掉了-->
+      <div style="overflow: auto" class="flex flex1 neiRong mg8">
+        <!--左区-->
+        <div style="flex: 3" class="flex column mg8">
+          <!--数据区-->
+          <div class="flex shuJuQu mgb8">
+            <!--四个数据块 要在单个小块内定义高度 不能在上级-->
+            <div class="flex1 shuJu baiSe yinYing mgr8"></div>
+            <div class="flex1 shuJu baiSe yinYing mgr8"></div>
+            <div class="flex1 shuJu baiSe yinYing mgr8"></div>
+            <div class="flex1 shuJu baiSe yinYing"></div>
+          </div>
+          <!--列表区-->
+          <div class="flex column">
+            <!--列表项-->
+            <div class="lieBiaoXiang baiSe yinYing mgb8"></div>
+            <div class="lieBiaoXiang baiSe yinYing mgb8"></div>
+            <div class="lieBiaoXiang baiSe yinYing mgb8"></div>
+            <div class="lieBiaoXiang baiSe yinYing mgb8"></div>
+            <div class="lieBiaoXiang baiSe yinYing mgb8"></div>
+            <div class="lieBiaoXiang baiSe yinYing mgb8"></div>
+          </div>
+        </div>
+        <!--右区-->
+        <div style="flex: 1" class="youQu flex column mg8">
+          <!--提示区-->
+          <div style="height: 150px" class="mgb8 baiSe yinYing"></div>
+          <!--消息区-->
+          <div style="height: 300px" class="baiSe yinYing"></div>
+        </div>
+      </div>
     </div>
-    <img> </img>
-    
-    
-    <br>
-    </body>
+  </body>
 </html>
